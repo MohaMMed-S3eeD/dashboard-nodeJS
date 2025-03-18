@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <script src="./js/color-modes.js"></script>
+    <link
+      rel="stylesheet"
+      href="./bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="./img/ali.png" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.112.5" />
+    <title>Home page</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/dark-light.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sidebars.css" rel="stylesheet" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212; /* Dark background */
+        color: #e0e0e0; /* Light text color */
+      }
+
+      main {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+      }
+
+      section {
+        padding: 20px;
+        transition: margin-left 0.3s ease-in-out;
+      }
+
+      /* Table Styling */
+      .table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Deeper shadow for dark theme */
+      }
+
+      .table thead {
+        background-color: #1e1e1e; /* Darker header */
+        color: #bb86fc; /* Purple accent */
+      }
+
+      .table th,
+      .table td {
+        vertical-align: middle;
+        padding: 12px 15px;
+        border-color: #333; /* Darker borders */
+      }
+
+      .table tbody tr:hover {
+        background-color: #333; /* Dark hover effect */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Buttons Styling */
+      .btn-primary {
+        background-color: #bb86fc; /* Purple accent */
+        border: none;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .btn-primary:hover {
+        background-color: #9c6ade; /* Slightly darker purple */
+        transform: scale(1.1);
+      }
+
+      .btn-danger {
+        background-color: #cf6679; /* Pinkish red */
+        border: none;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .btn-danger:hover {
+        background-color: #b04a62; /* Darker pinkish red */
+        transform: scale(1.1);
+      }
+
+      /* Tooltip Styling */
+      [data-bs-toggle="tooltip"] {
+        position: relative;
+      }
+
+      .tooltip-inner {
+        background-color: #bb86fc; /* Purple accent */
+        color: white;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: #1e1e1e; /* Darker navbar */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+      }
+
+      .navbar-brand,
+      .navbar-nav .nav-link {
+        color: #bb86fc !important; /* Purple accent */
+      }
+
+      .navbar-brand:hover,
+      .navbar-nav .nav-link:hover {
+        color: #9c6ade !important; /* Slightly darker purple */
+        text-decoration: none;
+      }
+
+      /* Sidebar Styling */
+      .sidebar {
+        background-color: #1e1e1e; /* Dark sidebar */
+        color: #e0e0e0; /* Light text */
+        width: 250px;
+        transition: width 0.3s ease-in-out;
+      }
+
+      .sidebar a {
+        color: #bb86fc; /* Purple accent */
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .sidebar a:hover {
+        color: #9c6ade; /* Slightly darker purple */
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 60px;
+        }
+
+        .sidebar a span {
+          display: none;
+        }
+      }
+
+  /* General Styles */
+  .container {
+    background-color: transparent; /* Transparent background */
+    color: #e0e0e0; /* Light text */
+    max-width: 400px; /* Limit width for better appearance */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Icon Container Styling */
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px auto; /* Space below the icon */
+    border-radius: 50%; /* Circular shape */
+    background-color: #bb86fc; /* Purple accent */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  }
+
+  /* Icon Styling */
+  .icon {
+    font-size: 56px; /* Larger icon size */
+    color: #1e1e1e; /* Dark text for contrast */
+  }
+
+  /* Message Styling */
+  .message {
+    font-size: 24px; /* Larger font size */
+    font-weight: 600; /* Bold text */
+    color: #e0e0e0; /* Light text */
+    letter-spacing: 1px; /* Spacing between letters */
+    margin-top: 10px; /* Space above the message */
+  }
+
+  /* Hover Effect */
+  .icon-container:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition */
+    background-color: #9c6ade; /* Slightly darker purple on hover */
+  }
+    </style>
+  </head>
+  <body>
+    <%- include('./Components/dark-light.ejs') %>
+
+    <main class="d-flex flex-nowrap">
+      <%- include('./Components/sidebar.ejs', {currentPage: "index"}) %>
+
+      <section class="w-100">
+        <%- include('./Components/navbar.ejs') %>
+         <% if (!users[0]) { %>
+        <div style="margin-top: 20px;" class="container">
+          <div class="icon">🚫</div>
+          <div class="message">No Data Available</div>
+        </div>
+
+        <% } else { %>
+
+        <table
+          style="width: 99%"
+          class="text-center mx-auto table mt-5 table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Country</th>
+              <th scope="col">Age</th>
+              <th scope="col">Last updated</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach((element, index) => { %>
+
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= element.fireName %></td>
+              <td><%= element.gender %></td>
+              <td><%= element.country %></td>
+              <td><%= element.age %></td>
+              <td><%= moment(element.createdAt).fromNow() %></td>
+              <td>
+                <a
+                  data-bs-toggle="tooltip"
+                  data-bs-title="View details"
+                  data-bs-placement="top"
+                  class="btn btn-primary btn-sm"
+                  href="./user/<%= element.id %>"
+                  ><i class="bi bi-eye"></i
+                ></a>
+
+                <a
+                  data-bs-toggle="tooltip"
+                  data-bs-title="Edit user"
+                  data-bs-placement="top"
+                  class="btn btn-primary btn-sm"
+                  href="./<%= element.id %>/edit.html"
+                >
+                  <i class="bi bi-pencil"></i>
+                </a>
+                <form
+                  style="display: inline"
+                  action="/edit/<%= element._id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Delete user"
+                    data-bs-placement="top"
+                    class="btn btn-danger btn-sm"
+                  >
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </section>
+    </main>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <script src="./js/sidebars.js"></script>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

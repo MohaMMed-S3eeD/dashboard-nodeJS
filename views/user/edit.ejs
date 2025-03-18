@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <script src="../js/color-modes.js"></script>
+    <link
+      rel="stylesheet"
+      href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="../img/ali.png" type="image/x-icon" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.112.5" />
+    <title>Edit page</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/dark-light.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212; /* Dark background */
+        color: #e0e0e0; /* Light text color */
+      }
+
+      main {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+      }
+
+      section {
+        padding: 20px;
+        transition: margin-left 0.3s ease-in-out;
+      }
+
+      /* Breadcrumb Styling */
+      .breadcrumb {
+        background-color: #1e1e1e; /* Dark background */
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+      }
+
+      .breadcrumb-item a {
+        color: #bb86fc; /* Purple accent */
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .breadcrumb-item a:hover {
+        color: #9c6ade; /* Slightly darker purple */
+      }
+
+      .breadcrumb-item.active {
+        color: #e0e0e0; /* Light text color */
+      }
+
+      /* Form Styling */
+      form {
+        background-color: #1e1e1e; /* Dark background */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+      }
+
+      .form-label {
+        color: #bb86fc; /* Purple accent */
+      }
+
+      .form-control {
+        background-color: #2b2b2b; /* Dark input background */
+        border: 1px solid #444; /* Dark border */
+        color: #e0e0e0; /* Light text color */
+      }
+
+      .form-control:focus {
+        border-color: #bb86fc; /* Purple border on focus */
+        box-shadow: 0 0 5px rgba(187, 134, 252, 0.5); /* Subtle glow */
+      }
+
+      .form-select {
+        background-color: #2b2b2b; /* Dark select background */
+        border: 1px solid #444; /* Dark border */
+        color: #e0e0e0; /* Light text color */
+      }
+
+      .form-select:focus {
+        border-color: #bb86fc; /* Purple border on focus */
+        box-shadow: 0 0 5px rgba(187, 134, 252, 0.5); /* Subtle glow */
+      }
+
+      /* Buttons Styling */
+      .btn-primary {
+        background-color: #bb86fc; /* Purple accent */
+        border: none;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .btn-primary:hover {
+        background-color: #9c6ade; /* Slightly darker purple */
+        transform: scale(1.05);
+      }
+
+      .btn-danger {
+        background-color: #cf6679; /* Pinkish red */
+        border: none;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .btn-danger:hover {
+        background-color: #b04a62; /* Darker pinkish red */
+        transform: scale(1.05);
+      }
+
+      /* Modal Styling */
+      .modal-content {
+        background-color: #1e1e1e; /* Dark background */
+        color: #e0e0e0; /* Light text color */
+        border: none;
+        border-radius: 10px;
+      }
+
+      .modal-header {
+        border-bottom: 1px solid #444; /* Dark border */
+      }
+
+      .modal-footer {
+        border-top: 1px solid #444; /* Dark border */
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: #1e1e1e; /* Darker navbar */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+      }
+
+      .navbar-brand,
+      .navbar-nav .nav-link {
+        color: #bb86fc !important; /* Purple accent */
+      }
+
+      .navbar-brand:hover,
+      .navbar-nav .nav-link:hover {
+        color: #9c6ade !important; /* Slightly darker purple */
+        text-decoration: none;
+      }
+
+      /* Sidebar Styling */
+      .sidebar {
+        background-color: #1e1e1e; /* Dark sidebar */
+        color: #e0e0e0; /* Light text */
+        width: 250px;
+        transition: width 0.3s ease-in-out;
+      }
+
+      .sidebar a {
+        color: #bb86fc; /* Purple accent */
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .sidebar a:hover {
+        color: #9c6ade; /* Slightly darker purple */
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 60px;
+        }
+
+        .sidebar a span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../Components/dark-light.ejs') %>
+
+    <main class="d-flex flex-nowrap">
+      <%- include('../Components/sidebar.ejs', {currentPage: "edit"}) %>
+
+      <section class="w-100">
+        <%- include('../Components/navbar.ejs') %>
+
+        <nav
+          class="px-2 mt-4 d-flex flex-wrap justify-content-between"
+          aria-label="breadcrumb"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Ali Hassan
+            </li>
+          </ol>
+
+          <p class="me-md-5">
+            <span class="fw-medium fs-6">Id :</span> 6487021520bcf1af6319484c
+          </p>
+        </nav>
+
+        <form
+          class="mx-0 row gx-3 gy-4 mt-2"
+          action="/edit/<%= user._id %>?_method=PUT"
+          method="post"
+        >
+          <div class="col-md-6">
+            <label for="inputfirstName4" class="form-label">First Name:</label>
+            <input
+              value="<%= user.fireName %>"
+              name="fireName"
+              type="text"
+              class="form-control"
+              id="inputfirstName4"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputlastName4" class="form-label">Last Name:</label>
+            <input
+              value="<%= user.lastName %>"
+              name="lastName"
+              type="text"
+              class="form-control"
+              id="inputlastName4"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputemail4" class="form-label">Email:</label>
+            <input
+              value="<%= user.email %>"
+              name="email"
+              type="email"
+              class="form-control"
+              id="inputemail4"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputtele4" class="form-label">Telephone:</label>
+            <input
+              value="<%= user.phoneNumber %>"
+              name="phoneNumber"
+              type="number"
+              class="form-control"
+              id="inputtele4"
+            />
+          </div>
+
+          <div>
+            <div class="col-md-6">
+              <label for="inputage4" class="form-label">Age:</label>
+              <input
+                value="<%= user.age %>"
+                name="age"
+                type="number"
+                class="form-control"
+                id="inputage4"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="col-md-6">
+              <label for="inputCountry" class="form-label">Country:</label>
+              <select name="country" id="inputCountry" class="form-select">
+                <option selected hidden disabled>Choose here ...</option>
+            
+                <% const countries = [
+                    "Morocco", "Egypt", "Algeria", "Tunisia", "Libya", "Sudan", 
+                    "Saudi Arabia", "United Arab Emirates", "Kuwait", "Qatar", 
+                    "Bahrain", "Oman", "Jordan", "Lebanon", "Syria", "Iraq", 
+                    "Yemen", "Palestine", "Somalia", "Comoros", "Mauritania", "Djibouti",
+                    "United States", "Canada", "United Kingdom", "France", "Germany", 
+                    "Italy", "Spain", "Turkey", "China", "India", "Japan", "Brazil"
+                ]; %>
+            
+                <% countries.forEach(country => { %>
+                    <option <%= user.country === country ? "selected": null%> ><%= country %></option>
+                <% }); %>
+            </select>
+            
+            </div>
+          </div>
+
+          <div>
+            <div class="col-md-6">
+              <label for="inputGender" class="form-label">Gender:</label>
+              <select name="gender" id="inputGender" class="form-select">
+                <option selected hidden disabled>Choose here ...</option>
+                <% const g = [
+                    "Male", "Female"
+                ]; %>
+                 <% g.forEach(gg => { %>
+                  <option <%= user.gender === gg ? "selected": null%> ><%= gg %></option>
+              <% }); %>
+                
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">
+              Update changes
+            </button>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              type="button"
+              class="btn btn-danger"
+            >
+              Delete Customer
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Delete Customer
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to continue delete the customer?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <form action="/edit/<%= user._id %>?_method=DELETE" method="post">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/sidebars.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

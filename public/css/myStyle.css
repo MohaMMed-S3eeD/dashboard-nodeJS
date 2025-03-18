@@ -1,0 +1,76 @@
+.bi-lightning-charge::before { 
+  margin-right: 1.2rem;
+  font-size: 2.2rem;
+  color: #9f86ff;
+  text-shadow: 0 0 10px rgba(159, 134, 255, 0.3);
+} 
+
+/* SIDEBAR */
+.sidebar { 
+  width: 280px; 
+  background-color: #2e1e4a;
+  box-shadow: 2px 0 10px rgba(46, 30, 74, 0.2);
+  transition: all 0.4s ease;
+} 
+
+.small-sidebar { 
+  width: 77px; 
+  background-color: #341e56;
+} 
+
+.small-sidebar .sidebar-text { 
+  display: none; 
+} 
+
+/* Logo */
+.bi-lightning-charge { 
+  transition: all 0.5s ease;
+  margin-top: 0.7rem;
+} 
+
+.small-sidebar .bi-lightning-charge { 
+  margin-top: 2.7rem;
+  transform: scale(1.1);
+} 
+
+.small-sidebar .bi-x-circle::before { 
+  content: "\F134"; 
+  transition: 1s; 
+} 
+
+.small-sidebar .bi-lightning-charge::before { 
+  content: "\F46C"; 
+  transform: rotateY(360deg); 
+  transition: 0.8s; 
+  margin-left: 0.55rem; 
+  color: #b388ff; /* لون أحمر خفيف */
+} 
+
+.bi-x-circle { 
+  font-size: 1.5rem; 
+  transition: all 0.3s ease;
+  color: #ff86b3;
+  opacity: 0.9;
+} 
+
+.bi-x-circle:hover { 
+  font-size: 1.7rem;
+  color: #ff9dc6;
+  opacity: 1;
+  transform: rotate(90deg);
+} 
+
+.sidebar a { 
+  color: #e4d7ff;
+  text-decoration: none;
+  font-weight: 600; 
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+} 
+
+.sidebar a:hover { 
+  color: #b388ff;
+  background-color: rgba(179, 136, 255, 0.1);
+  transform: translateX(5px);
+}

@@ -1,0 +1,26 @@
+
+
+name & schema
+
+{
+  fireName: ssssssssssss,
+  lastName: ssssssssssss,
+  email: sssssssssss,
+  phoneNumber: sssssssss,
+  age: sssssssssssss,
+  country: sssssssssss,
+  gender: ssssssss,
+
+}
+
+{
+  _id: new ObjectId("67d891109a9305ea45cfb330"),
+  fireName: 'mosaeed',
+  lastName: 'saeed',
+  email: 'mosaeed7888@gmail.com',
+  phoneNumber: '01114838609',
+  age: 30,
+  country: 'Egypt',
+  gender: 'Male',
+  __v: 0
+}

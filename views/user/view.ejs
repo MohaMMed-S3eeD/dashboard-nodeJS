@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <script src="../js/color-modes.js"></script>
+    <link
+      rel="stylesheet"
+      href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="../img/ali.png" type="image/x-icon" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.112.5" />
+    <title>Edit page</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/dark-light.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212; /* Dark background */
+        color: #e0e0e0; /* Light text color */
+      }
+
+      main {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+      }
+
+      section {
+        padding: 20px;
+        transition: margin-left 0.3s ease-in-out;
+      }
+
+      /* Breadcrumb Styling */
+      .breadcrumb {
+        background-color: #1e1e1e; /* Dark background */
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+      }
+
+      .breadcrumb-item a {
+        color: #bb86fc; /* Purple accent */
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .breadcrumb-item a:hover {
+        color: #9c6ade; /* Slightly darker purple */
+      }
+
+      .breadcrumb-item.active {
+        color: #e0e0e0; /* Light text color */
+      }
+
+      /* Table Styling */
+      .table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Deeper shadow for dark theme */
+      }
+
+      .table thead {
+        background-color: #1e1e1e; /* Darker header */
+        color: #bb86fc; /* Purple accent */
+      }
+
+      .table th,
+      .table td {
+        vertical-align: middle;
+        padding: 12px 15px;
+        border-color: #333; /* Darker borders */
+      }
+
+      .table tbody tr:hover {
+        background-color: #333; /* Dark hover effect */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: #1e1e1e; /* Darker navbar */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+      }
+
+      .navbar-brand,
+      .navbar-nav .nav-link {
+        color: #bb86fc !important; /* Purple accent */
+      }
+
+      .navbar-brand:hover,
+      .navbar-nav .nav-link:hover {
+        color: #9c6ade !important; /* Slightly darker purple */
+        text-decoration: none;
+      }
+
+      /* Sidebar Styling */
+      .sidebar {
+        background-color: #1e1e1e; /* Dark sidebar */
+        color: #e0e0e0; /* Light text */
+        width: 250px;
+        transition: width 0.3s ease-in-out;
+      }
+
+      .sidebar a {
+        color: #bb86fc; /* Purple accent */
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .sidebar a:hover {
+        color: #9c6ade; /* Slightly darker purple */
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 60px;
+        }
+
+        .sidebar a span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../Components/dark-light.ejs') %>
+
+    <main class="d-flex flex-nowrap">
+      <%- include('../Components/sidebar.ejs', {currentPage: "view"}) %>
+
+      <section class="w-100">
+        <%- include('../Components/navbar.ejs') %>
+
+        <nav
+          style="width: 88%"
+          class="px-2 mt-4 d-flex flex-wrap justify-content-between"
+          aria-label="breadcrumb"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <%= user.fireName %> <%= user.lastName %>
+            </li>
+          </ol>
+
+          <p class="">
+            <span class="fw-medium fs-6">Id :</span> <%= user._id %>
+          </p>
+        </nav>
+
+        <table
+          style="width: 88%"
+          class="ms-1 table mt-5 table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th class="fw-normal" scope="col"><%= user.fireName %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Last Name</th>
+              <td><%= user.lastName %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Phone</th>
+              <td><%= user.phoneNumber %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Email</th>
+              <td><%= user.email %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Gender</th>
+              <td><%= user.gender %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Age</th>
+              <td><%= user.age %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Country</th>
+              <td><%= user.country %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Created on</th>
+              <td>
+                <%= moment(user.createdAt).format('MMMM Do YYYY, h:mm:ss a'); %>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">Last Update</th>
+              <td>
+                <%= moment(user.updatedAt).format('MMMM Do YYYY, h:mm:ss a') %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/sidebars.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
